@@ -1,0 +1,30 @@
+{
+  "name": "tictactoe",
+  "version": "0.0.1",
+  "description": "Just your old tic-tac-toe.",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinyjsgames/tictactoe.git"
+  },
+  "keywords": [
+    "js",
+    "games",
+    "tic-tac-toe",
+    "html5",
+    "game"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tinyjsgames/tictactoe/issues"
+  },
+  "homepage": "https://github.com/tinyjsgames/tictactoe#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

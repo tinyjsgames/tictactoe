@@ -1,0 +1,25 @@
+{
+  "name": "tictactoe",
+  "description": "Just your old tic-tac-toe.",
+  "main": "",
+  "authors": [
+    "Rohit Mulange <rohitmulange@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "js",
+    "games",
+    "tic-tac-toe",
+    "html5",
+    "game"
+  ],
+  "homepage": "https://github.com/tinyjsgames/tictactoe",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

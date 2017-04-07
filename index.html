@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic-Tac-Toe</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/tictactoe.js"></script>
+    <link rel="stylesheet" href="dist/tictactoe.css">
+    <script src="bower_components/svg-injector/dist/svg-injector.min.js"></script>
+    <script>
+    $(function(){
+        var mySVGsToInject = document.querySelectorAll('.iconic-sprite');
+        // Do the injection
+        SVGInjector(mySVGsToInject);
+    })
+
+    </script>
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+</head>
+<body>
+      <img src="bower_components/open-iconic/sprite/open-iconic.svg" class="iconic-sprite" style="display:none;" />
+    <div class="container">
+        <div class="tictactoe player-1 players-1">
+            <div class="game">
+                <table>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="ui">
+                <div class="tabs">
+                    <div class=" tab single-player-tab player">
+                        <span class="inline-svg">
+                            <svg class="check" viewBox="0 0 8 8"><use xlink:href="#circle-check"></use></svg>
+                        </span>
+                        Play Against Computer
+                    </div></div>
+                <svg viewBox="0 0 8 8"><use xlink:href="open-iconic.min.svg#reload"></use></svg>
+                <div class="round-button">
+                    <a class="reset">
+
+                        <svg viewBox="0 0 8 8" class="icon">
+      <use xlink:href="#reload" class="icon-account-login"></use>
+    </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
