@@ -1,0 +1,30 @@
+{
+  "name": "tictactoe",
+  "description": "Beat a computer at TicTacToe",
+  "main": "index.html",
+  "authors": [
+    "Rohit Mulange <rohit@rohit.codes>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "tic-tac-toe",
+    "tictactoe",
+    "js",
+    "game",
+    "html5",
+    "game"
+  ],
+  "homepage": "https://github.com/tinyjsgames/tictactoe",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "font-awesome": "^4.7.0"
+  }
+}
