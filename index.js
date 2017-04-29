@@ -36,75 +36,7 @@ $(function(){
 
 
 
-    function victoryCondition(board) {
-        var boardFull = true;
-        var victoryCheck = {value:0};
 
-        var lastValueDiagCheck =0 ;
-        var DiagCheckMatch = new Array();
-        var lastValueDiagCheck2 =0 ;
-        var DiagCheckMatch2 = new Array();
-        for (var i=0; i<board.length; i++) {
-            var lastValueRowCheck = 0;
-            var RowCheckMatch = new Array();
-            var lastValueColCheck = 0;
-            var ColCheckMatch = new Array();
-            for (var j=0; j< board.length; j++) {
-
-                if((board[i][j] > 0 ) && (board[i][j] == lastValueRowCheck || lastValueRowCheck == 0)) {
-
-                    RowCheckMatch.push({row:i, cell:j});
-                    lastValueRowCheck = board[i][j];
-                    if(RowCheckMatch.length > 2) {
-                        victoryCheck = {value:lastValueRowCheck, type:'row'+i};
-                        break;
-                    }
-                } else {
-                    var lastValueRowCheck = 0;
-                    var RowCheckMatch = new Array();
-                }
-                if((board[j][i] > 0 ) && (board[j][i] == lastValueColCheck || lastValueColCheck == 0)) {
-                    ColCheckMatch.push({row: j,cell: i});
-                    lastValueColCheck = board[j][i];
-                    if(ColCheckMatch.length > 2) {
-                        victoryCheck = {value:lastValueColCheck, type:'col'+i};
-                        break;
-                    }
-                } else {
-                    var lastValueColCheck = 0;
-                    var ColCheckMatch = new Array();
-                }
-            }
-
-            if((board[i][i] > 0 ) && (board[i][i] == lastValueDiagCheck || lastValueDiagCheck == 0)) {
-                DiagCheckMatch.push({row: j,cell: i});
-                lastValueDiagCheck = board[i][i];
-                if(DiagCheckMatch.length > 2) {
-                    victoryCheck = {value:lastValueDiagCheck, type:'diag1'};
-                    break;
-                }
-            } else {
-                var lastValueDiagCheck = 0;
-                var DiagCheckMatch = new Array();
-            }
-            var k = board.length - i-1;
-            if((board[i][k] > 0 ) && (board[i][k] == lastValueDiagCheck2 || lastValueDiagCheck2 == 0)) {
-                DiagCheckMatch2.push({row: i,cell: k});
-                lastValueDiagCheck2 = board[i][k];
-                if(DiagCheckMatch2.length > 2) {
-                    victoryCheck = {value:lastValueDiagCheck2, type:'diag2'};
-                    break;
-                }
-            } else {
-                var lastValueDiagCheck2 = 0;
-                var DiagCheckMatch2 = new Array();
-            }
-
-        }
-
-        return victoryCheck;
-
-    }
 
     function game() {
 
@@ -130,7 +62,7 @@ $(function(){
                 cellElement.html(getValue(dataObject.move));
                 cellElement.data("value", dataObject.move);
                 _game.gamestate[dataObject.row][dataObject.cell] = _game.move;
-                var v = victoryCondition(_game.gamestate);
+                var v = _game.victoryCondition(_game.gamestate);
 
                 if(v.value > 0) {
                     _game.finish(v);
@@ -206,7 +138,7 @@ $(function(){
                         var newboard = JSON.parse(JSON.stringify(board));
                         newboard[index][cellIndex] = move;
                         var moveScore = 0;
-                        if(victoryCondition(newboard).value == move) {
+                        if(_game.victoryCondition(newboard).value == move) {
                             moveScore = 100000;
                             result.baseScore = moveScore;
                             result.row = index;
@@ -332,6 +264,75 @@ $(function(){
             } else {
                 p2.addClass('selected');
             }
+        }
+        this.victoryCondition = function victoryCondition(board) {
+            var boardFull = true;
+            var victoryCheck = {value:0};
+
+            var lastValueDiagCheck =0 ;
+            var DiagCheckMatch = new Array();
+            var lastValueDiagCheck2 =0 ;
+            var DiagCheckMatch2 = new Array();
+            for (var i=0; i<board.length; i++) {
+                var lastValueRowCheck = 0;
+                var RowCheckMatch = new Array();
+                var lastValueColCheck = 0;
+                var ColCheckMatch = new Array();
+                for (var j=0; j< board.length; j++) {
+
+                    if((board[i][j] > 0 ) && (board[i][j] == lastValueRowCheck || lastValueRowCheck == 0)) {
+
+                        RowCheckMatch.push({row:i, cell:j});
+                        lastValueRowCheck = board[i][j];
+                        if(RowCheckMatch.length > 2) {
+                            victoryCheck = {value:lastValueRowCheck, type:'row'+i};
+                            break;
+                        }
+                    } else {
+                        var lastValueRowCheck = 0;
+                        var RowCheckMatch = new Array();
+                    }
+                    if((board[j][i] > 0 ) && (board[j][i] == lastValueColCheck || lastValueColCheck == 0)) {
+                        ColCheckMatch.push({row: j,cell: i});
+                        lastValueColCheck = board[j][i];
+                        if(ColCheckMatch.length > 2) {
+                            victoryCheck = {value:lastValueColCheck, type:'col'+i};
+                            break;
+                        }
+                    } else {
+                        var lastValueColCheck = 0;
+                        var ColCheckMatch = new Array();
+                    }
+                }
+
+                if((board[i][i] > 0 ) && (board[i][i] == lastValueDiagCheck || lastValueDiagCheck == 0)) {
+                    DiagCheckMatch.push({row: j,cell: i});
+                    lastValueDiagCheck = board[i][i];
+                    if(DiagCheckMatch.length > 2) {
+                        victoryCheck = {value:lastValueDiagCheck, type:'diag1'};
+                        break;
+                    }
+                } else {
+                    var lastValueDiagCheck = 0;
+                    var DiagCheckMatch = new Array();
+                }
+                var k = board.length - i-1;
+                if((board[i][k] > 0 ) && (board[i][k] == lastValueDiagCheck2 || lastValueDiagCheck2 == 0)) {
+                    DiagCheckMatch2.push({row: i,cell: k});
+                    lastValueDiagCheck2 = board[i][k];
+                    if(DiagCheckMatch2.length > 2) {
+                        victoryCheck = {value:lastValueDiagCheck2, type:'diag2'};
+                        break;
+                    }
+                } else {
+                    var lastValueDiagCheck2 = 0;
+                    var DiagCheckMatch2 = new Array();
+                }
+
+            }
+
+            return victoryCheck;
+
         }
         /* End Game */
         this.finish = function(victory={value:0}) {
@@ -460,7 +461,6 @@ $(function(){
             this.initialize(_game.container);
 
         }
-
 
     }
 
