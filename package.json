@@ -1,0 +1,29 @@
+{
+  "name": "tictactoe",
+  "version": "0.1.0",
+  "description": "Beat a computer at TicTacToe",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinyjsgames/tictactoe.git"
+  },
+  "keywords": [
+    "tic-tac-toe",
+    "tictactoe",
+    "js",
+    "game",
+    "html5",
+    "game"
+  ],
+  "author": "Rohit Mulange <rohit@rohit.codes>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tinyjsgames/tictactoe/issues"
+  },
+  "homepage": "https://github.com/tinyjsgames/tictactoe#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
