@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tiny JS Games : Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="/build/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,600,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+        <div class="container">
+        <div class="feature">
+
+        </div>
+        <div class="page pull-up">
+            <div class="post">
+
+                <div class="tictactoe players-1 card card-full split reverse large-only-split">
+
+                    <div class="right">
+                        <h1>Tic-Tac-Toe</h1>
+                        <p class="description">
+                            Can you beat a computer at Tic-Tac-Toe?
+                        </p>
+
+                        <div class="actions ui">
+                            <div class="panel computer-check">
+                                <div class="checkbox-bar custom-checkbox active">
+                                    <input class="hidden computer" checked type="checkbox" id="computer-checkbox"  autocomplete="off">
+                                    <span class="checkbox-replacement" data-for="computer-checkbox">
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                    </span>
+                                    Play against Computer
+                                </div>
+                                <div class="computer-only">
+                                    <div class="custom-select field">
+                                        <label for="">Difficulty </label>
+                                        <div class="select form">
+                                            <select class="difficulty" name=""  autocomplete="off">
+                                                <option value="easy" selected>Easy</option>
+                                                <option value="difficult">Impossible</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="custom-checkbox field active">
+                                        <input class="hidden turn" checked type="checkbox" id="player-checkbox"  autocomplete="off">
+                                        <span class="checkbox-replacement" data-for="computer-checkbox">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </span>
+                                        Go First (Play as X)
+                                    </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="links">
+                                <li><button class="reset"> Restart Game </button>
+
+                                </li>
+                            </ul>
+                            <span class="settings-info"><i class="fa fa-info-circle" aria-hidden="true" title=""></i>
+                            Restart Game to Play with new Settings
+                            </span>
+
+
+
+                        </div>
+
+                    <div class="left">
+                        <div class="game">
+                        <div class="tictactoe-container">
+                            <div class="tictactoe-game">
+                            <table class="table">
+                              <tbody>
+                              </tbody>
+                            </table>
+                            </div>
+                        <div class="line">
+                            <svg display="block" viewBox="0 0 600 600">
+
+                            </svg>
+                        </div>
+                        </div>
+
+                        <div class="info turn-info-block">
+                            <span class="full-toggle turn-info">
+                                <span class="option p1 selected">X (You)</span><span class="option p2">O (Computer)</span>
+                            </span>
+                            <p class="full-toggle-label">
+                                Current Turn
+                            </p>
+                        </div>
+                        <div class="info victory-info" style="display:de">
+                            <span class="label red">
+                                <i class="fa fa-thumbs-down" aria-hidden="true"></i> Computer Wins
+                            </span>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+.card {
+    position: relative;
+    font-size: 1em;
+    margin: 0;
+    box-shadow: 0 0 1px 1px rgba(50,50,50,0.1);
+    background-color: white;
+
+    &.small {
+        @media screen and (min-width:1000px) {
+            width: 40em;
+        }
+    }
+
+}
+img {
+    width: 100%;
+    &.padded {
+        padding: 20%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    &.mini-padded {
+        padding: 10%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
+.split {
+    display: flex;
+    .left {
+        width:40%;
+        vertical-align: middle;
+        box-sizing: border-box;
+    }
+    .right {
+        padding: 1.2em 2em;
+        box-sizing: border-box;
+        border-left: 1px solid #ccc;
+        width: 60%;
+    }
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+    &.large-only-split {
+        display: block;
+        .left {
+            width:100%;
+
+        }
+        .right {
+            width: 100%;
+        }
+        @media screen and (min-width:1000px) {
+            display: flex;
+            .left {
+                width:60%;
+
+            }
+            .right {
+                width: 40%;
+            }
+        }
+    }
+}
+
+
+.card-full {
+
+    @media screen and (min-width:1000px) {
+        display: flex;
+    }
+    font-size: 1em;
+    width: 100%;
+    .left {
+        width:100%;
+        @media screen and (min-width:1000px) {
+            width:60%;
+        }
+    }
+    .right {
+        width:100%;
+        @media screen and (min-width:1000px) {
+            width:40%;
+        }
+        h1 {
+            font-weight: normal;
+            margin-top: 0.4em;
+        }
+    }
+}
+
+
+div.custom-checkbox {
+    font-size: 1em;
+    cursor: inherit;
+
+    label {
+        cursor: inherit;
+        display: inline-block;
+        vertical-align: middle;
+
+    }
+    input.hidden {
+        display: hidden;
+        width: 1px;
+        height: 1px;
+        position: absolute;
+        overflow: hidden;
+        left:-1000px;
+        box-sizing: border-box;
+
+
+    }
+    .checkbox-replacement {
+
+        display: inline-block;
+        display: hidden;
+        width: 1em;
+        height: 1em;
+        font-size: 1em;
+        line-height: 1em;
+        position: relative;
+        top:0em;
+        background-color: #ffffff;
+        border: 2px solid #666;
+        margin-right: 0.4em;
+        margin-left: 0.2em;
+        vertical-align: middle;
+        overflow: none;
+        color: white;
+
+    }
+    &.active {
+        .checkbox-replacement {
+            background-color: #FE6767;
+            border-color: darken(#FE6767,1%);
+        }
+
+    }
+
+}
+div.checkbox-bar {
+    padding: 1em 1em;
+    background-color: white;
+    cursor: pointer;
+}
+select {
+    border: 0;
+    outline:0;
+    width: 70%;
+    background-color: transparent;
+    height: 2.2em;
+    box-sizing: border-box;
+    padding-bottom:3px;
+    border-bottom: 1px solid #555;
+
+}
+
+
+.button, button {
+    margin-right: 1em;
+    border: 0;
+    color: white;
+    background-color: $button-color;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    outline:0;
+    width: auto;
+    padding: 0.6em 0.8em 0.6em;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    font-weight: 600;
+    &:hover {
+        background-color: lighten($button-color,5%);
+    }
+    &:active {
+        outline:none;
+        color: white;
+        background: $button-color;
+    }
+    &::-moz-focus-inner {
+        outline:0;
+        border:0;
+    }
+    &.green {
+        background-color: $button-color-green;
+        &:hover, &:active {
+            background-color: lighten($button-color-green,5%);
+        }
+    }
+    &.red {
+        background-color: $button-color-red;
+        &:hover, &:active {
+            background-color: lighten($button-color-red,5%);
+        }
+    }
+}
+
+.label{
+    font-weight: 400;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: white;
+    display: inline-block;
+    padding: 0.7em 0.5em;
+    background-color: #e5e5e5;
+    color:#777;
+    font-weight: 600;
+    background-color: $button-color-green;
+    &.red {
+        background-color: $button-color-red;
+    }
+    color: white;
+    border-radius: 4px;
+}
+
+
+
+.full-toggle {
+    text-transform: uppercase;
+    display: inline-block;
+    width: 14em;
+
+    .option {
+        font-weight: 400;
+        font-size: 0.9em;
+        width: 50%;
+        box-sizing: border-box;
+        background-color: white;
+        display: inline-block;
+        padding: 0.6em 0.4em;
+        background-color: #e5e5e5;
+        color:#777;
+        &:first-child {
+            border-right: 1px solid #eee;
+
+        }
+        &.selected {
+            font-weight: 600;
+            background-color: $button-color-green;
+            color: white;
+        }
+        &.red {
+            background-color: $button-color-red;
+            color: white;
+            font-weight: 600;
+        }
+    }
+}
+
+
+.full-toggle-label {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 0.9em;
+    color: #555;
+    text-transform: uppercase;
+
+}
+.desktop-only {
+    @media screen and (max-width:999px) {
+        display: none;
+    }
+}
+.mobile-only {
+    @media screen and (min-width:999px) {
+        display: none;
+    }
+}
+
+.game {
+    padding-top: 6em;
+    padding-bottom: 4em;
+}
