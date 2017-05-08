@@ -10,7 +10,8 @@ module.exports = function(grunt) {
           sourcemap: 'auto'
         },
         files: {
-          'build/style.css':'sass/style.scss',
+          'css/style.css':'sass/style.scss',
+          'css/plugin.css':'sass/plugin.scss',
         }
       }
     },
@@ -19,6 +20,28 @@ module.exports = function(grunt) {
         files: "**/*.scss",
         tasks: ['sass']
       }
+    },
+    copy: {
+      web: {
+        files: [
+          {expand: true, src: ['index.html'], dest: 'build/web/'},
+          {expand: true, src: ['js/tictactoe.js'], dest: 'build/web/'},
+          {expand: true, src: ['js/web.js'], dest: 'build/web/'},
+          {expand: true, src: ['css/style.css'], dest: 'build/web/'},
+          {expand: true, src: ['bower_components/**/*'], dest: 'build/web/'},
+        ],
+      },
+      plugin: {
+        files: [
+          {expand: true, src: ['plugin.html'], dest: 'build/plugin/'},
+          {expand: true, src: ['js/tictactoe.js'], dest: 'build/plugin/'},
+          {expand: true, src: ['js/plugin.js'], dest: 'build/plugin/'},
+          {expand: true, src: ['manifest.json'], dest: 'build/plugin/'},
+          {expand: true, src: ['css/plugin.css'], dest: 'build/plugin/'},
+          {expand: true, src: ['bower_components/**/*'], dest: 'build/plugin/'},
+          {expand: true, src: ['img/**/*'], dest: 'build/plugin/'},
+        ],
+      },
     },
     browserSync: {
       dev: {
@@ -33,7 +56,8 @@ module.exports = function(grunt) {
         options: {
           watchTask: true,
           server: {
-            baseDir: "./"
+            baseDir: "build",
+            directory: true
           }
 
         }
@@ -44,8 +68,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   // Default task(s).
   grunt.registerTask('default', ['browserSync','watch']);
+  grunt.registerTask('build', ['sass','copy']);
 
 
 };

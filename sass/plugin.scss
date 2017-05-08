@@ -1,0 +1,75 @@
+@import "style";
+
+/* Style only for independent page start */
+body {
+  min-width: 500px;
+
+}
+body .page {
+    margin-top: 0;
+    .heading {
+        padding: 0.8em;
+        background-color: $button-color;
+        color: white;
+        display: flex;
+        h1 {
+            width: 50%;
+            font-weight: normal;
+            font-size: 2em;
+        }
+        p {
+            width: 50%;
+            text-align: right;
+            color: white;
+            font-size: 1.2em;
+            margin-top: 0.5em;
+            a {
+                color: inherit;
+                font-style: normal;
+
+            }
+        }
+    }
+    .card-full .left {
+        width: 60%;
+    }
+    .card-full .right {
+        padding:0;
+        border-left: 0;
+        h1{
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .actions.ui {
+            font-size: 1em;
+            margin-top:0;
+            margin:1em;
+            .field {
+                margin-top: 0.5em;
+                margin-bottom: 1.5em;
+            }
+            .panel.computer-check{
+                width: auto;
+            }
+            .links {
+                margin: 1em;
+
+            }
+        }
+    }
+    .tictactoe-container {
+        font-size: 0.8em;
+
+    }
+    .game {
+        padding-top: 1em;
+        border: 1px solid #ddd;
+        padding: 3em;
+        margin: 1em;
+        margin-right: 0;
+
+    }
+}
+
+/* Style only for indepen.. end */
