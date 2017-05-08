@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: "**/*.scss",
-        tasks: ['sass']
+        tasks: ['sass','copy']
       }
     },
     copy: {
@@ -47,10 +47,8 @@ module.exports = function(grunt) {
       dev: {
         bsFiles: {
           src : [
-            'css/**/*.css',
-            'style.css',
-            'js/**/*.js',
-            '*.html'
+            'build/web/css/**/*.css',
+            'build/plugin/css/**/*.css',
           ]
         },
         options: {
@@ -70,8 +68,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-copy');
   // Default task(s).
-  grunt.registerTask('default', ['browserSync','watch']);
   grunt.registerTask('build', ['sass','copy']);
+  grunt.registerTask('default', ['build','browserSync','watch']);
 
 
 };
