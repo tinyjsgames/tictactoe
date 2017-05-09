@@ -301,7 +301,9 @@ function game() {
             var lastValueColCheck = 0;
             var ColCheckMatch = new Array();
             for (var j=0; j< board.length; j++) {
-
+                if(board[i][j] == 0) {
+                    boardFull = false;
+                }
                 if((board[i][j] > 0 ) && (board[i][j] == lastValueRowCheck || lastValueRowCheck == 0)) {
 
                     RowCheckMatch.push({row:i, cell:j});
@@ -352,7 +354,9 @@ function game() {
             }
 
         }
-
+        if(boardFull && victoryCheck.value == 0) {
+            victoryCheck = {value:3}
+        }
         return victoryCheck;
 
     }
@@ -363,32 +367,43 @@ function game() {
         $('.victory-info').show();
         var infotext = $('.victory-info span');
         var color= '#666';
-        if(_game.noofplayers == 2) {
-            infotext.html('<i class="fa fa-thumbs-up" aria-hidden="true"></i> Player '+_game.player + ' Wins');
-            infotext.addClass('green');
+        if(victory.value == 3) {
+
+            infotext.html('<i class="fa fa-thumbs-down" aria-hidden="true"></i> Draw');
+            infotext.addClass('yellow');
             infotext.removeClass('red');
-            color = '#4CAF50';
 
-        }
-        else {
-
-            if(_game.player != _game.computerPlayer) {
-                infotext.html('<i class="fa fa-thumbs-up" aria-hidden="true"></i> You Win');
+        } else {
+            if(_game.noofplayers == 2) {
+                infotext.html('<i class="fa fa-thumbs-up" aria-hidden="true"></i> Player '+_game.player + ' Wins');
                 infotext.addClass('green');
-                color = '#4CAF50';
                 infotext.removeClass('red');
-            } else {
-                infotext.html('<i class="fa fa-thumbs-down" aria-hidden="true"></i> Computer Wins');
-                infotext.addClass('red');
-                color ='#FE6262';
-                infotext.removeClass('green');
+                color = '#4CAF50';
+
+            }
+            else {
+
+                if(_game.player != _game.computerPlayer) {
+                    infotext.html('<i class="fa fa-thumbs-up" aria-hidden="true"></i> You Win');
+                    infotext.addClass('green');
+                    color = '#4CAF50';
+                    infotext.removeClass('red');
+                } else {
+                    infotext.html('<i class="fa fa-thumbs-down" aria-hidden="true"></i> Computer Wins');
+                    infotext.addClass('red');
+                    color ='#FE6262';
+                    infotext.removeClass('green');
+                }
+            }
+            if('type' in victory) {
+                var svgbody = VictorySVG.generate(victory.type,color);
+                $('.line').show();
+                $('.line').html(svgbody);
             }
         }
-        if('type' in victory) {
-            var svgbody = VictorySVG.generate(victory.type,color);
-            $('.line').show();
-            $('.line').html(svgbody);
-            console.log(svgbody);
+
+        if(_game.persistence) {
+             localStorage.removeItem('tictactoe');
         }
 
         _game.active = false;

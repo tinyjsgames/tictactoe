@@ -213,6 +213,10 @@ select {
     &.red {
         background-color: $button-color-red;
     }
+    &.yellow {
+        background-color: #FFC107;
+        color: #222;
+    }
     color: white;
     border-radius: 4px;
 }
