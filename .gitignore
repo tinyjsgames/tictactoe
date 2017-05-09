@@ -3,3 +3,4 @@ build
 .sass-cache
 node_modules
 css
+js/*.min.js

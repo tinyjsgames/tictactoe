@@ -7,5 +7,5 @@ $(function(){
 
     });
     x.initialize($('.tictactoe'));
-    x.initializeUI();
+    x.initializeUI(null);
 });

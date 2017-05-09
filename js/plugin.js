@@ -23,6 +23,6 @@ $(function(){
     if(typeof(savedstate)!=='undefined') {
         x.initializeUI(savedstate.settings);
     } else {
-        x.initializeUI();
+        x.initializeUI(null);
     }
 });

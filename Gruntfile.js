@@ -18,31 +18,55 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: ["**/*.scss", "js/**/*.js", "index.html", "plugin.html"],
-        tasks: ['sass','copy']
+        tasks: ['build']
       }
+    },
+    processhtml: {
+        build: {
+            files: {
+              'build/web/index.html': ['index.html'],
+              'build/plugin/plugin.html': ['plugin.html']
+            }
+        }
+    },
+    uglify: {
+        target: {
+          files: {
+            'js/web.min.js': ['js/tictactoe.js', 'js/web.js'],
+            'js/plugin.min.js': ['js/tictactoe.js', 'js/plugin.js'],
+          }
+        }
     },
     copy: {
       web: {
         files: [
-          {expand: true, src: ['index.html'], dest: 'build/web/'},
-          {expand: true, src: ['js/tictactoe.js'], dest: 'build/web/'},
-          {expand: true, src: ['js/web.js'], dest: 'build/web/'},
-          {expand: true, src: ['css/style.css'], dest: 'build/web/'},
+          {expand: true, src: ['js/web.min.js'], dest: 'build/web/'},
+          {expand: true, src: ['css/style.min.css'], dest: 'build/web/'},
           {expand: true, src: ['bower_components/**/*'], dest: 'build/web/'},
         ],
       },
       plugin: {
         files: [
-          {expand: true, src: ['plugin.html'], dest: 'build/plugin/'},
-          {expand: true, src: ['js/tictactoe.js'], dest: 'build/plugin/'},
-          {expand: true, src: ['js/plugin.js'], dest: 'build/plugin/'},
+          {expand: true, src: ['js/plugin.min.js'], dest: 'build/plugin/'},
           {expand: true, src: ['manifest.json'], dest: 'build/plugin/'},
-          {expand: true, src: ['css/plugin.css'], dest: 'build/plugin/'},
+          {expand: true, src: ['css/plugin.min.css'], dest: 'build/plugin/'},
           {expand: true, src: ['bower_components/**/*'], dest: 'build/plugin/'},
           {expand: true, src: ['img/**/*'], dest: 'build/plugin/'},
         ],
       },
     },
+    cssmin: {
+      main: {
+        files: [{
+          expand: true,
+          cwd: 'css',
+          src: ['*.css', '!*.min.css'],
+          dest: 'css',
+          ext: '.min.css'
+        }]
+      }
+    },
+
     browserSync: {
       dev: {
         bsFiles: {
@@ -54,7 +78,7 @@ module.exports = function(grunt) {
         options: {
           watchTask: true,
           server: {
-            baseDir: "build",
+            baseDir: "./",
             directory: true
           }
 
@@ -67,8 +91,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-processhtml');
   // Default task(s).
-  grunt.registerTask('build', ['sass','copy']);
+  grunt.registerTask('build', ['sass','cssmin','uglify','copy','processhtml']);
   grunt.registerTask('default', ['build','browserSync','watch']);
 
 

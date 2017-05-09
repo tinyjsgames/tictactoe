@@ -26,7 +26,7 @@ var VictorySVG = {
 
 }
 
-function getValue(forindex, pathclass="animate") {
+function getValue(forindex, pathclass) {
     var osvg = '<svg display="block" viewBox="0 0 200 200" class="circlesvg ' + pathclass + '"><circle class="circle-1 ' + pathclass + '" cx="100" cy="100" r="50" stroke="#666" stroke-width="14" fill="transparent" /></svg>';
     var xsvg =  '<svg display="block" viewBox="0 0 200 200"><path class="cross1 ' + pathclass + '" d="M 50,50 L 150,150" stroke="#666" stroke-width="15" />'
     + '<path class="cross2 ' + pathclass + '" d="M 150,50 L 50,150" stroke="#666" stroke-width="15" /></svg>'
@@ -59,7 +59,7 @@ function game() {
 
             var cellSelector = 'td.cell-' + dataObject.row + '-' + dataObject.cell;
             var cellElement = $(cellSelector);
-            cellElement.html(getValue(dataObject.move));
+            cellElement.html(getValue(dataObject.move,"animate"));
             cellElement.data("value", dataObject.move);
             _game.gamestate[dataObject.row][dataObject.cell] = _game.move;
             var v = _game.victoryCondition(_game.gamestate);
@@ -96,7 +96,7 @@ function game() {
 
 
     }
-    this.enemyAI =   function enemyAI(gamedata={}) {
+    this.enemyAI =   function enemyAI(gamedata) {
         var board = gamedata.gamestate;
         var move = ('move' in gamedata) ? gamedata.move : _game.move;
         var stack = _game.cache;
@@ -361,7 +361,7 @@ function game() {
 
     }
     /* End Game */
-    this.finish = function(victory={value:0}) {
+    this.finish = function(victory) {
 
         $('.turn-info-block').hide();
         $('.victory-info').show();
@@ -408,7 +408,7 @@ function game() {
 
         _game.active = false;
     }
-    this.initializeUI = function(savedsettings = null) {
+    this.initializeUI = function(savedsettings) {
 
         $('.settings-info').hide();
 
