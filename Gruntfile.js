@@ -42,7 +42,9 @@ module.exports = function(grunt) {
         files: [
           {expand: true, src: ['js/web.min.js'], dest: 'build/web/'},
           {expand: true, src: ['css/style.min.css'], dest: 'build/web/'},
-          {expand: true, src: ['bower_components/**/*'], dest: 'build/web/'},
+          {expand: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'build/web/'},
+          {expand: true, src: ['bower_components/font-awesome/css/font-awesome.min.css'], dest: 'build/web/'},
+          {expand: true, src: ['bower_components/font-awesome/fonts/*'], dest: 'build/web/'},
         ],
       },
       plugin: {
@@ -50,7 +52,9 @@ module.exports = function(grunt) {
           {expand: true, src: ['js/plugin.min.js'], dest: 'build/plugin/'},
           {expand: true, src: ['manifest.json'], dest: 'build/plugin/'},
           {expand: true, src: ['css/plugin.min.css'], dest: 'build/plugin/'},
-          {expand: true, src: ['bower_components/**/*'], dest: 'build/plugin/'},
+          {expand: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'build/plugin/'},
+          {expand: true, src: ['bower_components/font-awesome/css/font-awesome.min.css'], dest: 'build/plugin/'},
+          {expand: true, src: ['bower_components/font-awesome/fonts/*'], dest: 'build/plugin/'},
           {expand: true, src: ['img/**/*'], dest: 'build/plugin/'},
         ],
       },
