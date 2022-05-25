@@ -1,0 +1,597 @@
+body {
+    color: #222;
+    font-family: "Source Sans Pro";
+    background-color: #eee;
+    margin: 0;
+    padding: 0;
+    font-size: .8em
+}
+
+@media screen and (min-width:500px) {
+    body {
+        font-size: .9em
+    }
+}
+
+@media screen and (min-width:700px) {
+    body {
+        font-size: 1em
+    }
+}
+
+@media screen and (min-width:1000px) {
+    body {
+        font-size: 1.1em
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #3f76b2
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 1.5em
+}
+
+p.description {
+    margin: 0;
+    padding: 0;
+    margin-top: .5em;
+    color: #444;
+    font-size: 1em;
+    font-style: italic
+}
+
+label {
+    cursor: inherit
+}
+
+.container {
+    margin: auto;
+    margin-top: 0;
+    width: 100%;
+    max-width: 1000px
+}
+
+.card {
+    position: relative;
+    font-size: 1em;
+    margin: 0;
+    box-shadow: 0 0 1px 1px rgba(50, 50, 50, .1);
+    background-color: #fff
+}
+
+@media screen and (min-width:1000px) {
+    .card.small {
+        width: 40em
+    }
+}
+
+img {
+    width: 100%
+}
+
+img.padded {
+    padding: 20%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: inline-block
+}
+
+img.mini-padded {
+    padding: 10%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: inline-block
+}
+
+.split {
+    display: flex
+}
+
+.split .left {
+    width: 40%;
+    vertical-align: middle;
+    box-sizing: border-box
+}
+
+.split .right {
+    padding: 1.2em 2em;
+    box-sizing: border-box;
+    border-left: 1px solid #ccc;
+    width: 60%
+}
+
+.split.reverse {
+    flex-direction: row-reverse
+}
+
+.split.large-only-split {
+    display: block
+}
+
+.split.large-only-split .left {
+    width: 100%
+}
+
+.split.large-only-split .right {
+    width: 100%
+}
+
+@media screen and (min-width:1000px) {
+    .split.large-only-split {
+        display: flex
+    }
+
+    .split.large-only-split .left {
+        width: 60%
+    }
+
+    .split.large-only-split .right {
+        width: 40%
+    }
+}
+
+.card-full {
+    font-size: 1em;
+    width: 100%
+}
+
+@media screen and (min-width:1000px) {
+    .card-full {
+        display: flex
+    }
+}
+
+.card-full .left {
+    width: 100%
+}
+
+@media screen and (min-width:1000px) {
+    .card-full .left {
+        width: 60%
+    }
+}
+
+.card-full .right {
+    width: 100%
+}
+
+@media screen and (min-width:1000px) {
+    .card-full .right {
+        width: 40%
+    }
+}
+
+.card-full .right h1 {
+    font-weight: 400;
+    margin-top: .4em
+}
+
+div.custom-checkbox {
+    font-size: 1em;
+    cursor: inherit
+}
+
+div.custom-checkbox label {
+    cursor: inherit;
+    display: inline-block;
+    vertical-align: middle
+}
+
+div.custom-checkbox input.hidden {
+    display: hidden;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+    left: -1000px;
+    box-sizing: border-box
+}
+
+div.custom-checkbox .checkbox-replacement {
+    display: inline-block;
+    display: hidden;
+    width: 1em;
+    height: 1em;
+    font-size: 1em;
+    line-height: 1em;
+    position: relative;
+    top: 0;
+    background-color: #fff;
+    border: 2px solid #666;
+    margin-right: .4em;
+    margin-left: .2em;
+    vertical-align: middle;
+    overflow: none;
+    color: #fff
+}
+
+div.custom-checkbox.active .checkbox-replacement {
+    background-color: #fe6767;
+    border-color: #fe6262
+}
+
+div.checkbox-bar {
+    padding: 1em 1em;
+    background-color: #fff;
+    cursor: pointer
+}
+
+select {
+    border: 0;
+    outline: 0;
+    width: 70%;
+    background-color: transparent;
+    height: 2.2em;
+    box-sizing: border-box;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #555
+}
+
+.button,
+button {
+    margin-right: 1em;
+    border: 0;
+    color: #fff;
+    background-color: #3f51b5;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    outline: 0;
+    width: auto;
+    padding: .6em .8em .6em;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .2);
+    border-radius: 2px;
+    font-weight: 600
+}
+
+.button:hover,
+button:hover {
+    background-color: #4d5ec1
+}
+
+.button:active,
+button:active {
+    outline: 0;
+    color: #fff;
+    background: #3f51b5
+}
+
+.button::-moz-focus-inner,
+button::-moz-focus-inner {
+    outline: 0;
+    border: 0
+}
+
+.button.green,
+button.green {
+    background-color: #4caf50
+}
+
+.button.green:active,
+.button.green:hover,
+button.green:active,
+button.green:hover {
+    background-color: #5cb860
+}
+
+.button.red,
+button.red {
+    background-color: #d32f2f
+}
+
+.button.red:active,
+.button.red:hover,
+button.red:active,
+button.red:hover {
+    background-color: #d74444
+}
+
+.label {
+    font-weight: 400;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: inline-block;
+    padding: .7em .5em;
+    background-color: #e5e5e5;
+    color: #777;
+    font-weight: 600;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px
+}
+
+.label.red {
+    background-color: #d32f2f
+}
+
+.label.yellow {
+    background-color: #ffc107;
+    color: #222
+}
+
+.full-toggle {
+    text-transform: uppercase;
+    display: inline-block;
+    width: 14em
+}
+
+.full-toggle .option {
+    font-weight: 400;
+    font-size: .9em;
+    width: 50%;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: inline-block;
+    padding: .6em .4em;
+    background-color: #e5e5e5;
+    color: #777
+}
+
+.full-toggle .option:first-child {
+    border-right: 1px solid #eee
+}
+
+.full-toggle .option.selected {
+    font-weight: 600;
+    background-color: #4caf50;
+    color: #fff
+}
+
+.full-toggle .option.red {
+    background-color: #d32f2f;
+    color: #fff;
+    font-weight: 600
+}
+
+.full-toggle-label {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: .9em;
+    color: #555;
+    text-transform: uppercase
+}
+
+@media screen and (max-width:999px) {
+    .desktop-only {
+        display: none
+    }
+}
+
+@media screen and (min-width:999px) {
+    .mobile-only {
+        display: none
+    }
+}
+
+.game {
+    padding-top: 6em;
+    padding-bottom: 4em
+}
+
+.tictactoe-container {
+    width: 18em;
+    margin: auto
+}
+
+ul.links,
+ul.links li {
+    display: block;
+    margin: 0;
+    padding: 0
+}
+
+.line {
+    display: none;
+    z-index: 1;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+    position: relative;
+    transform-origin: top;
+    bottom: 18em;
+    margin-top: -6px
+}
+
+.line.row-1 {
+    bottom: 15em;
+    margin-top: -10px
+}
+
+.line.row-2 {
+    bottom: 9em;
+    margin-top: -5px
+}
+
+.line.row-3 {
+    bottom: 3em;
+    margin-top: 0
+}
+
+.line.col-1 {
+    transform: rotate(90deg);
+    bottom: 9em;
+    right: 6em;
+    margin-top: 0;
+    margin-top: -5px;
+    margin-left: -2px
+}
+
+.line.col-2 {
+    transform: rotate(90deg);
+    bottom: 9em;
+    margin-top: 0;
+    margin-top: -5px
+}
+
+.line.col-3 {
+    transform: rotate(90deg);
+    bottom: 9em;
+    left: 6em;
+    margin-top: 0;
+    margin-top: -5px;
+    margin-right: -2px
+}
+
+table.table {
+    z-index: 2;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto
+}
+
+table.table tr td {
+    text-align: center;
+    line-height: 5em;
+    border-top: 4px solid #777;
+    border-left: 4px solid #777;
+    height: 5em;
+    width: 5em;
+    background: #fff;
+    padding: .5em;
+    max-height: 5em;
+    overflow: hidden
+}
+
+table.table tr td:first-child {
+    border-left: 0
+}
+
+table.table tr:first-child td {
+    border-top: 0
+}
+
+.circlesvg {
+    transform: rotate(270deg)
+}
+
+.circlesvg.animate {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 2s forwards
+}
+
+.cross1.animate {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 2s forwards
+}
+
+.cross2.animate {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 2s forwards;
+    animation-delay: .5s
+}
+
+.line1.animate {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 2s forwards;
+    animation-delay: .5s
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0
+    }
+}
+
+.info {
+    width: 14em;
+    margin: auto;
+    text-align: center;
+    margin-top: 5em
+}
+
+.panel {
+    width: 90%;
+    font-size: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ddd
+}
+
+.panel .field {
+    margin-top: 1em;
+    margin-bottom: 2em
+}
+
+.panel .field .form {
+    margin-top: .4em
+}
+
+.panel .computer-only {
+    padding: 1em 1em;
+    border-top: 1px solid #ddd;
+    color: #888
+}
+
+.panel .computer-only div.custom-checkbox .checkbox-replacement {
+    border-color: #bbb;
+    font-size: .9em
+}
+
+.panel .computer-only div.custom-checkbox.active .checkbox-replacement {
+    background-color: #fe6767;
+    border-color: #fe6262
+}
+
+.panel .computer-only.inactive {
+    cursor: not-allowed;
+    background-color: #eee
+}
+
+.panel .computer-only.inactive div.custom-checkbox {
+    cursor: not-allowed
+}
+
+.panel .computer-only.inactive div.custom-checkbox .checkbox-replacement {
+    color: #eee;
+    background-color: #eee
+}
+
+.panel .computer-only.inactive div.custom-checkbox.active .checkbox-replacement {
+    color: #eee;
+    background-color: #eee;
+    border-color: #bbb
+}
+
+.settings-info {
+    color: #888;
+    font-size: .9em
+}
+
+.settings-info i {
+    margin-right: .2em
+}
+
+ul.links {
+    margin-bottom: .3em
+}
+
+button.reset {
+    font-size: 1em;
+    margin-bottom: .2em
+}
+
+.page {
+    margin-top: 3em
+}
+
+.actions {
+    margin-top: 1em
+}
